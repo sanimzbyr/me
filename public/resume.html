@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zubair Hossain — Resume | Software Developer & AI/ML Enthusiast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FDF6E3;
+      --card-bg: #EEE8D5;
+      --text-dark: #073642;
+      --text-body: #586E75;
+      --text-muted: #839496;
+      --accent-blue: #268BD2;
+      --accent-cyan: #2AA198;
+      --accent-green: #859900;
+      --border: #D3CBB5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-body);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.45;
+      font-size: 13.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .no-print-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #EEE8D5;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+
+    .no-print-bar .actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent-blue);
+      color: #FDF6E3;
+    }
+    .btn-primary:hover {
+      background: #2075B3;
+    }
+
+    .btn-secondary {
+      background: var(--bg);
+      color: var(--text-dark);
+      border-color: var(--border);
+    }
+    .btn-secondary:hover {
+      background: #E5DEC6;
+    }
+
+    .resume-wrapper {
+      max-width: 820px;
+      margin: 24px auto;
+      padding: 36px 42px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(7, 54, 66, 0.06);
+      border-radius: 8px;
+    }
+
+    /* Header */
+    .resume-header {
+      border-bottom: 2px solid var(--accent-blue);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .name-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    h1.name {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.5px;
+    }
+
+    .headline {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-blue);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text-body);
+    }
+
+    .contact-row a {
+      color: var(--text-body);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .contact-row a:hover {
+      color: var(--accent-blue);
+      text-decoration: underline;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Section Styles */
+    section.resume-section {
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      margin-left: 10px;
+    }
+
+    .summary-text {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-body);
+      text-align: justify;
+    }
+
+    /* Skills Table / Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 16px;
+      font-size: 12px;
+    }
+
+    .skill-category {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .skill-cat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: var(--text-dark);
+      font-size: 11.5px;
+      min-width: 105px;
+      flex-shrink: 0;
+    }
+
+    .skill-cat-list {
+      color: var(--text-body);
+    }
+
+    /* Project & Experience Blocks */
+    .item-block {
+      margin-bottom: 11px;
+    }
+
+    .item-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+
+    .item-title-group {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .item-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .item-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: var(--card-bg);
+      color: var(--text-body);
+      border: 1px solid var(--border);
+    }
+
+    .item-badge.thesis {
+      background: rgba(38, 139, 210, 0.12);
+      color: var(--accent-blue);
+      border-color: rgba(38, 139, 210, 0.3);
+    }
+
+    .item-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .item-tech {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--accent-cyan);
+      margin-bottom: 3px;
+      font-weight: 600;
+    }
+
+    .item-desc {
+      font-size: 12px;
+      color: var(--text-body);
+      line-height: 1.45;
+      margin-bottom: 4px;
+    }
+
+    ul.bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 12px;
+      color: var(--text-body);
+    }
+
+    ul.bullet-list li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 2px;
+      line-height: 1.45;
+    }
+
+    ul.bullet-list li::before {
+      content: '▪';
+      position: absolute;
+      left: 2px;
+      color: var(--accent-blue);
+      font-size: 10px;
+    }
+
+    .education-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+
+    .coursework-text {
+      font-size: 11.5px;
+      color: var(--text-body);
+      line-height: 1.4;
+    }
+
+    .interests-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      font-size: 11.5px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-body);
+    }
+
+    .interests-list span::before {
+      content: '• ';
+      color: var(--accent-cyan);
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm 12mm;
+      }
+      body {
+        background: #fff !important;
+        color: #111 !important;
+        font-size: 12.5px;
+      }
+      .no-print-bar {
+        display: none !important;
+      }
+      .resume-wrapper {
+        border: none !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+      }
+      a {
+        text-decoration: none !important;
+        color: inherit !important;
+      }
+      .section-title {
+        border-bottom-color: #999 !important;
+      }
+      .resume-header {
+        border-bottom-color: #268bd2 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Web Controls Bar (hidden during printing) -->
+  <div class="no-print-bar">
+    <div>
+      <strong>Zubair Hossain</strong> — Official Resume Sheet
+    </div>
+    <div class="actions">
+      <a href="index.html#resume" class="btn btn-secondary">← Back to Portfolio</a>
+      <button onclick="window.print()" class="btn btn-secondary">🖨️ Print / Save PDF</button>
+      <a href="Zubair_Hossain_Resume.pdf" download="Zubair_Hossain_Resume.pdf" class="btn btn-primary">⬇ Download PDF</a>
+    </div>
+  </div>
+
+  <div class="resume-wrapper">
+    <!-- Header -->
+    <header class="resume-header">
+      <div class="name-title-row">
+        <div>
+          <h1 class="name">Zubair Hossain</h1>
+          <div class="headline">Software Developer | AI/ML Enthusiast | Mechatronics Engineer</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <span class="contact-item">📞 <a href="tel:+8801302827082">+8801302827082</a></span>
+        <span>•</span>
+        <span class="contact-item">✉️ <a href="mailto:sanimzbyr@gmail.com">sanimzbyr@gmail.com</a></span>
+        <span>•</span>
+        <span class="contact-item">💻 <a href="https://github.com/sanimzbyr" target="_blank" rel="noopener noreferrer">github.com/sanimzbyr</a></span>
+        <span>•</span>
+        <span class="contact-item">💼 <a href="https://www.linkedin.com/in/sanimzbyr/" target="_blank" rel="noopener noreferrer">linkedin.com/in/sanimzbyr</a></span>
+        <span>•</span>
+        <span class="contact-item">📍 Rajshahi / Dhaka, Bangladesh</span>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section class="resume-section">
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary-text">
+        Software Developer and Mechatronics Engineer from RUET with strong multidisciplinary problem-solving foundations spanning enterprise backend architectures, scalable database modeling, modern web applications, and applied AI/ML systems. Experienced with C#, .NET, Java, Spring Boot, Python, and PostgreSQL, complemented by hands-on engineering competence in CAD solid modeling, CFD aerodynamic simulations, and physical prototyping. Passionate about building robust, maintainable software systems, intelligent LLM-assisted applications, and practical technology products.
+      </p>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="resume-section">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <span class="skill-cat-label">Programming:</span>
+          <span class="skill-cat-list">C#, Java, Python, JavaScript, TypeScript, SQL</span>
+        </div>
+        <div class="skill-category">
+          <span class="skill-cat-label">Backend & Web:</span>
+          <span class="skill-cat-list">.NET, ASP.NET, ASP.NET MVC, Spring Boot, REST APIs, EF Core</span>
+        </div>
+        <div class="skill-category">
+          <span class="skill-cat-label">Databases:</span>
+          <span class="skill-cat-list">PostgreSQL, SQL, Relational Schema Design</span>
+        </div>
+        <div class="skill-category">
+          <span class="skill-cat-label">Frontend:</span>
+          <span class="skill-cat-list">React, HTML5, CSS3, JavaScript, TypeScript, Bootstrap, Tailwind CSS</span>
+        </div>
+        <div class="skill-category">
+          <span class="skill-cat-label">AI & LLMs:</span>
+          <span class="skill-cat-list">Machine Learning, NLP, Large Language Models, AI Agents, Tool Calling</span>
+        </div>
+        <div class="skill-category">
+          <span class="skill-cat-label">Engineering:</span>
+          <span class="skill-cat-list">CAD (Fusion 360), CFD (ANSYS CFX), FEA, Robotics, Automation, 3D Printing</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Projects -->
+    <section class="resume-section">
+      <h2 class="section-title">Key Projects</h2>
+
+      <!-- VAWT Project -->
+      <div class="item-block">
+        <div class="item-header">
+          <div class="item-title-group">
+            <span class="item-title">Vertical Axis Wind Turbine for Low Wind Speed Area</span>
+            <span class="item-badge thesis">Undergraduate Thesis & Experimental Prototype</span>
+          </div>
+          <span class="item-meta">RUET Mechatronics Lab</span>
+        </div>
+        <div class="item-tech">Autodesk Fusion 360 • ANSYS CFX • CFD Simulation • NACA 0021 Airfoil • 3D Printing</div>
+        <ul class="bullet-list">
+          <li>Designed and investigated a compact three-bladed H-Darrieus vertical axis wind turbine tailored for low-wind-speed urban environments (Rotor: Ø 650 mm × H 1000 mm, Design Wind Speed: 5 m/s, Investigated Angular Velocity: 9 rad/s).</li>
+          <li>Constructed parametric 3D CAD models of the central mast, support struts, and hollow aerodynamic blades using Fusion 360.</li>
+          <li>Conducted Computational Fluid Dynamics (CFD) aerodynamic simulations in ANSYS CFX to compute torque coefficients, pressure distributions, and boundary-layer separation characteristics across varying angles of attack.</li>
+          <li>Fabricated physical prototype blade sections via precision additive manufacturing (3D printing) to evaluate rotational balance and low-wind self-start response.</li>
+        </ul>
+      </div>
+
+      <!-- Financial AI Platform -->
+      <div class="item-block">
+        <div class="item-header">
+          <div class="item-title-group">
+            <span class="item-title">Financial AI Platform</span>
+            <span class="item-badge">Product Concept</span>
+          </div>
+          <span class="item-meta">Independent Development</span>
+        </div>
+        <div class="item-tech">Python • LLM APIs • Document Processing • Excel Automation • PowerPoint Generation • Retrieval</div>
+        <ul class="bullet-list">
+          <li>Architected an AI productivity platform concept automating financial modeling, corporate filing extraction, spreadsheet formulation, and presentation synthesis.</li>
+          <li>Designed retrieval pipelines linking unstructured financial disclosures with contextual LLM reasoning for accurate metric computation.</li>
+          <li>Mapped programmatic execution flows generating formulaic Excel spreadsheets and executive decks directly from synthesized financial data.</li>
+        </ul>
+      </div>
+
+      <!-- E-commerce Platform -->
+      <div class="item-block">
+        <div class="item-header">
+          <div class="item-title-group">
+            <span class="item-title">E-commerce Platform</span>
+            <span class="item-badge">Web Application Concept</span>
+          </div>
+          <span class="item-meta">Full-Stack Development</span>
+        </div>
+        <div class="item-tech">C# / ASP.NET or Spring Boot • PostgreSQL • RESTful APIs • React • bKash Payment Workflow</div>
+        <ul class="bullet-list">
+          <li>Designed a lightweight, responsive e-commerce web application architecture tailored for regional commerce with bilingual (Bangla/English) support.</li>
+          <li>Engineered relational data models and RESTful backend endpoints in PostgreSQL for inventory tracking, catalog search, and administrative order management.</li>
+          <li>Integrated localized checkout logic supporting both Cash on Delivery (COD) and bKash digital payment verification workflows.</li>
+        </ul>
+      </div>
+
+      <!-- AI Business Automation -->
+      <div class="item-block">
+        <div class="item-header">
+          <div class="item-title-group">
+            <span class="item-title">AI Business Automation Engine</span>
+            <span class="item-badge">Automation Concept</span>
+          </div>
+          <span class="item-meta">Applied AI Exploration</span>
+        </div>
+        <div class="item-tech">Python • AI Agents • LLMs & NLP • WhatsApp Business API • Meta Graph API</div>
+        <ul class="bullet-list">
+          <li>Explored multi-channel communication automation across WhatsApp Business, Facebook, and Instagram to reduce response latency for online retailers.</li>
+          <li>Designed intent-detection pipelines with AI agents for automated FAQ resolution, order inquiry triaging, and seamless operator escalation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technical Progression / Experience -->
+    <section class="resume-section">
+      <h2 class="section-title">Technical Experience & Development</h2>
+
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Software Engineering & Backend Systems Focus</span>
+          <span class="item-meta">Active Development</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Designing scalable server architectures, REST APIs, and database migrations with C#, .NET, ASP.NET Core, and Entity Framework Core.</li>
+          <li>Deepening full-stack competencies with Java, Spring Boot, relational SQL databases (PostgreSQL), and modern frontends with React and TypeScript.</li>
+          <li>Practicing disciplined algorithms, Data Structures (DSA), version control workflows (Git/GitHub), and clean code standards.</li>
+        </ul>
+      </div>
+
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Applied AI, NLP & Intelligent Agent Engineering</span>
+          <span class="item-meta">Independent Research</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Constructing structured agentic workflows, prompt engineering frameworks, and domain-context retrieval pipelines utilizing modern LLM APIs.</li>
+          <li>Experimenting with NLP text extraction, financial document parsing, and practical task automation tools.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="resume-section">
+      <h2 class="section-title">Education</h2>
+      <div class="education-block">
+        <div>
+          <div class="item-title">Bachelor of Science in Mechatronics Engineering</div>
+          <div style="font-size: 12.5px; font-weight: 600; color: var(--accent-blue);">
+            Rajshahi University of Engineering & Technology (RUET)
+          </div>
+          <div style="font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">
+            Department of Mechatronics Engineering • Rajshahi, Bangladesh
+          </div>
+        </div>
+      </div>
+      <div class="coursework-text">
+        <strong style="color: var(--text-dark);">Core Coursework:</strong> Control Systems Engineering, Robotics & Automation, Fluid Mechanics & Aerodynamics, CAD/CAM, Microprocessors & Microcontrollers, Finite Element Analysis (FEA), Engineering Mechanics & Dynamics, Data Structures & Computer Programming, Industrial Instrumentation & Sensors.
+      </div>
+    </section>
+
+    <!-- Additional Interests -->
+    <section class="resume-section" style="margin-bottom: 0;">
+      <h2 class="section-title">Technical Interests</h2>
+      <div class="interests-list">
+        <span>Software Engineering & Backend Architecture</span>
+        <span>Artificial Intelligence & LLM Applications</span>
+        <span>Robotics & Industrial Automation</span>
+        <span>Product Development</span>
+        <span>Technology Entrepreneurship</span>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
